@@ -121,34 +121,67 @@
 
     </p>
       <div>
-      <h2>删除：</h2><br />
-      删除一个字符：x;<br />
-      删除一行：dd；<br />
+      <h2>删除：</h2>
+      x 删除一个字符<br />
+      dd 删除一行<br />
+      cc 删除一行，并进入insert mode<br />
       
-      <h2>翻屏幕：</h2><br />
-      ctrl+f;往下翻一屏<br />
-      ctrl+b;往上翻一屏<br />
-      ctrl+u;往上翻半屏<br />
-      ctrl+d;往下翻半屏<br />
+      <h2>复制</h2>
+      y 当前光标所在字符<br />
+      yy 当前光标所在行<br />
+      nyy 当前光标下n行<br />
+      shift＋v 选择块（通过jk），y复制所选块<br />
+      
+      <h2>粘贴：</h2>
+      p 粘贴<br />
+      
+      <h2>翻屏幕：</h2>
+      ctrl+b 往上翻一屏<br />
+      ctrl+f 往下翻一屏<br />
+      ctrl+u 往上翻半屏<br />
+      ctrl+d 往下翻半屏<br />
       
       <h2>行内移动光标</h2><br />
-      0,^移动到开头<br />
-      $移动到结尾<br />
+      0,^ 移动到开头<br />
+      $ 移动到结尾<br />
       
-      <h2>G的使用</h2><br />
+      <h2>屏幕移动光标位置</h2>
+      H 光标移动到屏幕顶端
+      M 光标移动到屏幕中间
+      L 光标移动到屏幕底部
+      
+      <h2>G的使用</h2>
       shift+G 跳到文件结尾<br />
       11G 到11行<br />
       :set nu 添加行好<br />
       
+      <h2>查找和替换</h2>
+      ／XXXX  查找XXXX字符<br />
+      n下一个；N上一个<br />
+      s/p1／p2/g 将当前行的p1全部改成p2<br />
+      g／p1/p2/g 将文件中所有p1都替换成p2<br />
+      ％ 查找配对的符号<br />
+      .*[ ]^%~$ 特殊字符前加上转义字符"\"<br />
+      
+      <h2>改变字母大小写</h2>
+      ～ 改变光标所在的字母大小写<br />
+      
+      <h2>撤销和恢复</h2>
+      u 撤销上一步<br />
+      ctrl+r 还原上一步<br />
+      
+      <h2>重复操作</h2>
+      . 重复上一次操作<br />
+      
+      <h2>退出和保存</h2>
+      :q 退出
+      :q！强制退出，不保存 <br />
+      :w 写入 <br />
+      :wq 写入并退出 <br />
+      ZZ 写入并退出 <br/>
       
       </div>
-      <div class="sharing">
-  
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://beattortoise.github.io/blog/2014/05/30/vim-ming-ling-xue-xi/" data-via="" data-counturl="http://beattortoise.github.io/blog/2014/05/30/vim-ming-ling-xue-xi/" >Tweet</a>
-  
-  
-  
-</div>
+     
 
     
     <p class="meta">
@@ -198,20 +231,7 @@
   
 
 
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
+ 
 
 
 
