@@ -1,0 +1,21 @@
+.content {
+  min-height: 600px;
+  margin-top: 60px;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.content .row {
+  margin-top: 100px;
+  text-align: center;
+}
+.content .row div {
+  height: 200px;
+}
+.content_page {
+  background: #f2f2f2;
+}
+.content_page .row_inner {
+  padding: 0 10%;
+}
