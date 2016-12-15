@@ -8,9 +8,8 @@
 
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/swiper.min.css" rel="stylesheet">
-		<link href="css/index.css" rel="stylesheet">
-
+		<link href="css/global.css" rel="stylesheet">
+		<link href="css/company.css" rel="stylesheet">
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -31,10 +30,16 @@
 				.navbar #navbar {
 					float: none;
 				}
+				.company {
+					font-size: 20px;
+				}
+				.is_show {
+					display: none;
+
+				}
 			}
 
 		</style>
-		
 	</head>
 	<body>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -46,24 +51,79 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </button>
-			  <a class="navbar-brand" href="#"></a>
+			  <a class="navbar-brand" href="index.html"></a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 			  <ul class="nav navbar-nav">
-				<li class="active"><a href="#">首页</a></li>
-				<li><a href="service.html">服务</a></li>
-				<li><a href="company.html">关于我们</a></li>
+				<li><a href="index.html">首页</a></li>
+				<li><a href="service.html">我们的服务</a></li>
+				<li class="active"><a href="company.html">关于我们</a></li>
 			  </ul>
 			</div>
 		  </div>
 		</nav>
 
-		<div class="footer">
+		<div class="company">
+			你我一起，将世界尽收眼底
 		</div>
+
+		<div class="container company_content">
+			<div class="row">
+				<div class="col-sm-9 col-xs-12">
+					<h2>公司介绍</h2>
+					<p>
+					生长在深圳的博德沃是一间专业从事数字营销推广的公司。通过对人群、场景、行业和价格的分析，归纳了一套独有完整的商业策略。广泛和优质的渠道合作伙伴保证了创意和方案的完美执行。积极的服务和对细节的关注奠定了良好的客户关系。
+					</p>
+					<p>
+					在这个信息爆炸的时代，个人通过手机一弹指顷就能发现和学习到大量的资讯。随着市场用在营销上的预算不断增长，真正的挑战来自如何有效地将感兴趣的信息呈现在潜在消费者的面前。为了让企业的声音通过各种媒体准确地传播给目标受众，博德沃专注于生产更具吸引力的内容同时精准定位目标人群和投放高效渠道，从而提高品牌的知名度和辨识度最终转换成销量。
+					</p>
+					<p>
+					博德沃致力于创造一个合作、创新与尊重的商业环境，把客户的成功和满意视为己任。输出高质量的结果的同时保持良好的客户关系，与企业一起成长。
+					</p>
+					<p class="sub_notes">博德沃期待与您共同前进… </p>
+				</div>
+				<div class="col-sm-3 is_show">
+					<img src ="img/our.png" style="margin:80px 0 0 20px;width: 60%"/>
+				</div>
+			</div>
+		</div>
+
+		<div class="company_content content_hope">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3 is_show">
+						<img src ="img/hope.png" style="margin:80px 0 0 20px;width: 60%"/>
+					</div>
+					<div class="col-sm-9 col-xs-12">
+						<h2>公司愿景</h2>
+						<p>
+							持续帮助客户树立品牌形象与吸引、发展和转化消费者是博德沃最基本的使命。  
+						</p>
+						<ul>
+							<li class="sub_notes">建立品牌与受众的桥梁</li>
+							<li class="sub_notes">积极响应和提供专业服务 </li> 
+							<li class="sub_notes">关怀客户视为己任  </li>
+							<li class="sub_notes">站在巨人的肩膀上看世界  </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="content_last">
+			<p>如果您有什么想法或者只是简单地想了解我们和提供的服务，请联系我们。 </p>
+			<div>
+				Tel: 0755-xxxxxxx <br />
+				E-mail: XXXXX@163.COM
+			</div>
+		</div>
+		<div class="footer">
+			版权©️
+		</div>
+
 
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<script src="js/swiper-3.4.0.min.js"></script>
-		<script src="js/index.js"></script>
 	</body>
 </html>

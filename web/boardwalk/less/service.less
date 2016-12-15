@@ -1,16 +1,60 @@
 .content {
-	min-height: 600px;
+	min-height: 700px;
 	margin-top: 60px;
-	margin-left: 0;
-	margin-right: 0;
-	padding-left: 0;
-	padding-right: 0;
+	background: #f7f7f7;
+	.bigTxt {
+		margin-top: 70px;
+		text-align: center;
+		h3 {
+			font-weight: normal;
+			margin-top: 10px;
+		}
+		.dot {
+			background: url('../img/dot.png') no-repeat;
+			display: inline-block;
+			width: 34px;
+			height: 6px;
+			margin-bottom: 30px;
+			margin-top: 8px;
+		}
+	}
 	.row {
-		margin-top: 100px;
+		margin-top: 40px;
+		margin-bottom: 40px;
 		text-align: center;
 		div {
-			height: 200px;
-
+			cursor: pointer;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			span {
+				display: inline-block; 
+				width: 230px;
+				height: 202px;
+				background-repeat: no-repeat;
+			}
+			a {
+				text-decoration: none;
+			}
+			p {
+				line-height: 1.8;
+				margin-top: 30px;
+				font-size: 16px;
+				color: #4c4a47;
+			}
+			.big_txt {
+				margin-top: 40px;
+				font-size: 24px;
+				color: #4c4a47;
+			}
+			.sub_txt {
+				margin-top: 10px;
+				margin-bottom: 40px;
+			}
+			.small_txt {
+				margin-top: 10px;
+				color: #81807c;
+				font-size: 14px;
+			}
 		}
 
 	}
@@ -21,3 +65,102 @@
 		padding: 0 10%;
 	}
 }
+
+.idea span {
+	background: url('../img/idea.png');
+}
+.idea1 span {
+	background: url('../img/idea1.png');
+}
+.idea2 span {
+	background: url('../img/idea2.png');
+}
+.idea3 span {
+	background: url('../img/idea3.png');
+}
+.idea {
+	&:hover {
+		span {
+			animation: run 1s infinite linear;
+		}
+	}
+}
+.idea1 {
+	&:hover {
+		span {
+			animation: run1 1s infinite linear;
+		}
+	}
+}
+.idea2 {
+	&:hover {
+		span {
+			animation: run2 1s infinite linear;
+		}
+	}
+}
+.idea3 {
+	&:hover {
+		span {
+			animation: run3 1.5s infinite linear;
+		}
+	}
+}
+@keyframes run {
+	0%{
+		background: url('../img/idea.png');
+	}
+	50%{
+		background: url('../img/idea.png');
+	}
+	50.01%{
+		background: url('../img/idea_h.png');
+	}
+	100%{
+		background: url('../img/idea_h.png');
+	}
+}
+@keyframes run1 {
+	0%{
+		background: url('../img/idea1.png');
+	}
+	50%{
+		background: url('../img/idea1.png');
+	}
+	50.01%{
+		background: url('../img/idea1_h.png');
+	}
+	100%{
+		background: url('../img/idea1_h.png');
+	}
+}
+@keyframes run2 {
+	0%{
+		background: url('../img/idea2.png');
+	}
+	50%{
+		background: url('../img/idea2.png');
+	}
+	50.01%{
+		background: url('../img/idea2_h.png');
+	}
+	100%{
+		background: url('../img/idea2_h.png');
+	}
+}
+@keyframes run3 {
+	0%{
+		background: url('../img/idea3.png');
+	}
+	50%{
+		background: url('../img/idea3.png');
+	}
+	50.01%{
+		background: url('../img/idea3_h.png');
+	}
+	100%{
+		background: url('../img/idea3_h.png');
+	}
+}
+
+

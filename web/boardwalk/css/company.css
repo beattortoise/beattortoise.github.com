@@ -1,0 +1,43 @@
+.company {
+  background-image: url('../img/company.jpg');
+  background-repeat: no-repeat;
+  background-position: center 0;
+  -webkit-background-size: cover;
+  background-size: cover;
+  padding: 178px 0 0;
+  text-align: center;
+  min-height: 400px;
+  position: relative;
+  color: #fff;
+  font-size: 40px;
+  margin-top: 60px;
+}
+.company_content {
+  margin-top: 40px;
+}
+.company_content h2 {
+  color: #4389b3;
+}
+.company_content .sub_notes {
+  color: #4389b3;
+  font-size: 18px;
+}
+.company_content p {
+  line-height: 1.8;
+  margin-top: 40px;
+}
+.content_hope {
+  background: #f7f7f7;
+  padding: 40px 0 60px 0;
+}
+.content_hope ul {
+  margin-top: 30px;
+}
+.content_hope ul,
+.content_hope li {
+  padding-left: 0;
+  margin-left: 10px;
+}
+.content_hope li {
+  line-height: 1.9;
+}
