@@ -1,4 +1,4 @@
-$(function() {
+﻿$(function() {
 	//banenr
 	this.$wrap = $('body');
 	var  $win = $(window);
@@ -17,7 +17,7 @@ $(function() {
 	var $opoint = self.$wrap.find('.slider_point li');
 	var onow = 0;//当前显示的图片下标
 	var timer = null;
-	var change_time = 4000;//轮播图间隔时间
+	var change_time = 6000;//轮播图间隔时间
 	var animate_time = 1700;
 	var img_onload = false;
 	//icon_tip
@@ -79,7 +79,7 @@ $(function() {
 
 		//自动播放和点击左键效果一样
 		timer = setInterval(function(){ 
-			autoPlay();
+			//autoPlay();
 		}, change_time);
 
 		oright.click(function(){ 
@@ -174,6 +174,7 @@ $(function() {
 		$show_moving.stop(true, true);
 		var now_width = document.documentElement.clientWidth || document.body.clientWidth;
 		var now_height = document.documentElement.clientHeight|| document.body.clientHeight;
+		console.log(now_width+'now');
 		var min_width = 300;
 		var min_height = 568;
 
@@ -186,11 +187,12 @@ $(function() {
 			$slider.css({'width':now_width, 'height':now_height, 'margin-left':-(now_width)/2});
 			$box_img.css({'width':now_width});
 			$show_moving.css({'left':-onow*parseInt($box_img.width()), 'width':now_width * box_length});
-			if( now_height <= $img.height() && $img.width() > 0 &&  now_width >= $img.width() ){
-				$img.css({'width':now_width, 'height':'auto', 'margin-left':-now_width/2});
-			}
-			else if($img.width() > 0 && $img.height() > 0){ 
+			$img.css({'height':now_height, 'width':'auto',  'left':'50%', 'margin-left':-$img.width()/2});
+			if(now_width < $img.width() && now_height > $img.height() ){ 
 				$img.css({'height':now_height, 'width':'auto',  'left':'50%', 'margin-left':-$img.width()/2});
+			}
+			if(now_height <= $img.height()  &&  now_width >= $img.width() ){
+				$img.css({'width':now_width, 'height':'auto', 'margin-left':-now_width/2});
 			}
 		}
 		else{
