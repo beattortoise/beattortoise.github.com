@@ -1,0 +1,46 @@
+<!-- @@master = layout.html-->
+<!-- @@block  =  title-->
+	<title>金融商城</title>
+<!-- @@close-->
+<!-- @@block  =  css-->
+	<link href="../../output/mall/index/index.css" rel="stylesheet">
+<!-- @@close-->
+
+<!-- @@block  =  content-->
+	<main>
+<div id="container" style="min-width:800px;height:400px"></div>
+
+	</main>
+<!-- @@close-->
+
+<!-- @@block  =  js-->
+	<script src="../../output/mall/index/index.js"></script>
+	<script>
+  $(function () { 
+        $('#container').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'My first Highcharts chart'
+            },
+            xAxis: {
+                categories: ['苹果', '香蕉', '橙子']   //指定x轴分组
+            },
+            yAxis: {
+                title: {
+                    text: 'something'
+                }
+            },
+             series: [{                                //指定数据列
+                name: '小明',                          //数据列名
+                data: [1, 0, 4]                        //数据
+            }, {
+                name: '小红',
+                data: [5, 7, 3]
+            }]
+        });
+    });
+	</script>
+<!-- @@close-->
+
