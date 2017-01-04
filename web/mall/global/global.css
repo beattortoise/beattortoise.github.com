@@ -1,0 +1,94 @@
+/* reset.css */
+body,
+ul,
+dl,
+dd,
+p,
+h1,
+h2,
+h3,
+hr,
+form,
+input,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+img,
+button,
+input {
+  border: none;
+}
+input {
+  outline: none;
+}
+.clear {
+  zoom: 1;
+}
+.clear:after {
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+  overflow: hidden;
+}
+/* reset.css end */
+body {
+  min-width: 1220px;
+}
+.container {
+  width: 1220px;
+}
+.navbar-fixed-top {
+  position: inherit;
+  height: 100px;
+  margin-bottom: 0;
+}
+.navbar-fixed-top .container {
+  padding-top: 20px;
+}
+.navbar-fixed-top #navbar {
+  float: right;
+}
+.navbar-inverse {
+  background-color: #d5e3f0;
+  border-color: #d5e3f0;
+}
+.navbar-inverse .navbar-nav > li.active a,
+.navbar-inverse .navbar-nav > li.hover a,
+.navbar-inverse .navbar-nav > li:focus a {
+  background: none;
+  color: #000;
+}
+.navbar-inverse .navbar-nav > li.active a:hover,
+.navbar-inverse .navbar-nav > li.hover a:hover,
+.navbar-inverse .navbar-nav > li:focus a:hover,
+.navbar-inverse .navbar-nav > li.active a:focus,
+.navbar-inverse .navbar-nav > li.hover a:focus,
+.navbar-inverse .navbar-nav > li:focus a:focus {
+  color: #000;
+  background: none;
+}
+.navbar-inverse .navbar-nav > li a {
+  color: #31343b;
+}
+.navbar-inverse .navbar-nav > li a:hover,
+.navbar-inverse .navbar-nav > li a:focus {
+  color: #000;
+  background: none;
+}
+.content {
+  font-size: 14px;
+}
+footer {
+  margin-top: 40px;
+  font-size: 12px;
+  color: #abb0bc;
+  text-align: center;
+  margin-bottom: 10px;
+}
