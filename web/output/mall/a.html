@@ -13,6 +13,30 @@
 		<link href="../../output/mall/global/global.css" rel="stylesheet">
 
 	<link href="../../output/mall/index/index.css" rel="stylesheet">
+	<style>
+	tr th {
+		text-align: center;
+	}
+	 tr input {
+		 border: 1px solid #ccc;
+		 width: 80px;
+		 height: 20px;
+		 display: none;
+	 }
+	 tr div {
+		 width: 80px;
+		 height: 20px;
+		 display: inline-block;
+	 }
+    #myTab {
+		margin-top: 30px;
+		width: 650px;
+	}
+    #myTabContent {
+		width: 650px;
+		height: 420px;
+	}
+	</style>
 
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -47,7 +71,61 @@
 		<div class="content">
 
 	<main>
-<div id="container" style="min-width:800px;height:400px"></div>
+	<ul id="myTab" class="nav nav-tabs">
+		<li class="active">
+			<a href="#type_tab" data-toggle="tab">
+				 类型
+			</a>
+		</li>
+		<li><a href="#week_tab" data-toggle="tab">周期</a></li>
+	</ul>
+	<div id="myTabContent" class="tab-content">
+		<div class="tab-pane fade in active" id="type_tab">
+			<div id="type" style="width: 600px;height:400px;" class="circle"></div>
+		</div>
+		<div class="tab-pane fade in " id="week_tab">
+			<div id="week" style="width: 600px;height:400px;" class="circle"></div>
+		</div>
+	</div>
+
+	<div id="app">
+		<table  class="table table-bordered">
+			<thead>
+				<tr>
+					<th width="100">台名称</th>
+					<th width="100">标</th>
+					<th width="100">金额</th>
+					<th>年化收益(%)</th>
+					<th>投资周期(周)</th>
+					<th>起息日期</th>
+					<th>预计收益</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="text-center" v-for="(item,index) in myData">
+					<td><div @click="doHide(item,$event)">{{item.plat}}</div><input  v-model="item.plat" @blur="doHide(item,$event)" lazy /></td>
+					<td><div @click="doHide(item,$event)">{{item.mark}}</div><input v-model="item.mark" @blur="doHide(item,$event)" lazy /></td>
+					<td><div @click="doHide(item,$event)">{{item.money}}</div><input v-model="item.money" @blur="doHide(item,$event)" lazy /></td>
+					<td><div @click="doHide(item,$event)">{{item.year}}</div><input v-model="item.year" @blur="doHide(item,$event)" lazy /></td>
+					<td><div @click="doHide(item,$event)">{{item.week}}</div><input v-model="item.week" @blur="doHide(item,$event)" lazy /></td>
+					<td>{{item.day}}</td>
+					<td>{{item.cal}}</td>
+					<td><button class="btn btn-info btn-sm">删除</button></td>
+				</tr>
+				<tr class="text-center normal">
+					<td><div @click="doHide(normalData,$event)">{{normalData.plat}}</div><input  v-model="normalData.plat" @blur="doHide(normalData,$event,'add')" lazy placeholder="支付宝" /></td>
+					<td><div @click="doHide(normalData,$event)">{{normalData.mark}}</div><input v-model="normalData.mark" @blur="doHide(normalData,$event,'add')" lazy placdholder="2" /></td>
+					<td><div @click="doHide(normalData,$event)">{{normalData.money}}</div><input v-model="normalData.money" @blur="doHide(normalData,$event,'add')" lazy placdholder="2" /></td>
+					<td><div @click="doHide(normalData,$event)">{{normalData.year}}</div><input v-model="normalData.year" @blur="doHide(normalData,$event,'add')" lazy placdholder="2" /></td>
+					<td><div @click="doHide(normalData,$event)">{{normalData.week}}</div><input v-model="normalData.week" @blur="doHide(normalData,$event,'add')" lazy placdholder="2" /></td>
+					<td>{{normalData.day}}</td>
+					<td>{{normalData.cal}}</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
 	</main>
 
@@ -60,33 +138,191 @@
 		<script src="http://cdn.hcharts.cn/highstock/highstock.js"></script>
 		<script src="../../output/mall/global/global.js"></script>
 
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/3.3.2/echarts.min.js"></script>
 	<script src="../../output/mall/index/index.js"></script>
 	<script>
-  $(function () { 
-        $('#container').highcharts({
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'My first Highcharts chart'
-            },
-            xAxis: {
-                categories: ['苹果', '香蕉', '橙子']   //指定x轴分组
-            },
-            yAxis: {
-                title: {
-                    text: 'something'
-                }
-            },
-             series: [{                                //指定数据列
-                name: '小明',                          //数据列名
-                data: [1, 0, 4]                        //数据
-            }, {
-                name: '小红',
-                data: [5, 7, 3]
-            }]
-        });
-    });
+		
+	$(function(){
+		var myDate = {};
+		var normalDate = {};
+
+		myData = [
+			{plat: '支付宝', 
+			 mark: 2,
+			 money: 100,
+			 year: '19',
+			 week: '1',
+			 day: '2014-1-1',
+			 cal: 200,
+			 type: 'bank'
+			},
+			{plat: '支付宝', 
+			 mark: 2,
+			 money: 100,
+			 year: '19',
+			 week: '6',
+			 day: '2014-1-1',
+			 cal: 200,
+			 type: 'bank'
+			},
+			{plat: '支付宝', 
+			 mark: 2,
+			 money: 100,
+			 year: '19',
+			 week: '12',
+			 day: '2014-1-1',
+			 cal: 200,
+			 type: 'insurance'
+			}
+		];
+
+		function getChart(sel) {  //处理类型
+			var bank=0,insurance =0;
+			var shortNum=0,longNum=0, midNum=0;
+			var data = [];
+			for(var i=0; i<myData.length; i++) {
+				if(sel == 'type') {
+					switch(myData[i].type) {
+						case'bank':
+							bank++;
+							break;
+						case'insurance':
+							insurance++;
+							break;
+					}
+
+					data = [
+						{value: bank, name: '银行理财'},
+						{value: insurance, name: '保险'},
+					]
+
+				}
+
+				if(sel == 'week') {
+					if(myData[i].week > 11) {
+						longNum++;
+					}else if(myData[i].week > 5) {
+						midNum++;
+					}else if(myData[i].week > 0) {
+						shortNum++;
+					}
+					data = [
+						{value: shortNum, name: '短期'},
+						{value: midNum, name: '中期'},
+						{value: longNum, name: '长期'}
+					]
+				}
+			}
+			return data;
+		}
+
+		var	option = {
+				color: ['#fd6649','#54dc8a', '#0ba57f', '#5ca0ca', '#4f5e73','#95a8ad',  '#b68f6b', '#f8937f','#6e7074', '#546570', '#c4ccd3'],
+				legend: {
+					orient: 'vertical',
+					x: 'right',
+					itemWidth: '15',
+					formatter: '{name}',
+					data: [],
+				},
+				series: [
+					{
+						name:'数据分析',
+						type:'pie',
+						radius: ['40%', '70%'],
+						avoidLabelOverlap: false,
+						label: {
+							normal: {
+								show: false,
+								position: 'center'
+							},
+							emphasis: {
+								show: true,
+								formatter: "{b}\n({d}%)",
+								textStyle: {
+									fontSize: '22',
+									fontWeight: 'bold',
+								}
+							}
+						},
+						labelLine: {
+							normal: {
+								show: false
+							}
+						},
+						data: [
+
+						]
+					}
+				]
+		};
+
+
+
+		function pageLoad() {
+			 $('.circle').map(function(i,item){
+				var _sel = $(this).attr('id');   //初始化chart
+				option.series[0].data = getChart(_sel); 
+				option.legend.data = getChart(_sel);
+
+				echarts.init(document.getElementById(_sel)).setOption(option);
+
+			 })
+		}
+
+		pageLoad();  //执行
+
+		var date = new Date();
+
+		normalData = {
+			plat: '',
+			mark: '',
+			money: '',
+			year: '',
+			week: '',
+			day: '',
+			cal: '',
+			type: 'bank'  //  默认银行产品
+		}  
+
+		var arr = ['plat','mark','money','year','week','day','cal'];
+
+		var app =  new Vue({
+			el: '#app',
+			data: {
+				myData: myData,
+				normalData: normalData
+			},
+			methods: {
+				doHide: function(data,e,isAdd) {  //data是传进来的数据组值，add是判断是否新增 
+					var $this = $(e.target);
+					$this.hide();
+					if(e.target.nodeName== 'DIV') {
+						$this.siblings('input').show().focus();
+					}
+					if(e.target.nodeName == 'INPUT') {
+						$this.siblings('div').show();
+						//判断当输入条件 满足时发生  值的改变
+
+						if(data.plat  && data.mark && data.money && data.year && data.week) {
+							if(isAdd == 'add') {   //新增
+								normalData.cal = parseFloat(data.mark) * 10;
+								myData.push(JSON.parse(JSON.stringify(normalData)));
+								for(var i=0; i<arr.length; i++) {
+									normalData[arr[i]] = '';
+								}
+								pageLoad();
+							}else {
+								data.cal = parseFloat(data.mark) * 10;  //原有数据
+								pageLoad();
+							}
+						}
+					}
+				}
+			}
+		})
+	})
 	</script>
 
 	</body>
