@@ -5,6 +5,7 @@
   height: 400px;
   float: left;
   border: 1px solid #e8e8e8;
+  background: #fff;
 }
 .chartMod .hd {
   padding: 0 0 10px 10px;
@@ -155,13 +156,14 @@
   width: 150px;
 }
 .banner .banner_right .login_box div button {
+  border: 0;
   width: 275px;
   height: 40px;
   background-color: #ffff36;
   border-radius: 4px;
   font-size: 20px;
 }
-.banner .banner_right .login_box .forgot {
+.banner .banner_right .login_box .regist {
   color: #fff;
   margin-top: 20px;
   display: block;

@@ -1,0 +1,89 @@
+body {
+  background: #f7f7f7;
+}
+.inner {
+  position: relative;
+  top: 30px;
+  min-height: 780px;
+}
+.box .box_left {
+  border-radius: 2px;
+  padding: 20px;
+  height: 420px;
+  width: 680px;
+  float: left;
+  margin-right: 30px;
+  background: #fff;
+}
+.box .box_right {
+  border-radius: 2px;
+  padding: 20px;
+  height: 420px;
+  width: 510px;
+  float: left;
+  background: #fff;
+}
+.box .calendar_title {
+  background: #1499f9;
+  line-height: 40px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 20px;
+  width: 110px;
+  margin: 10px auto 20px;
+  text-align: center;
+}
+#calendar {
+  width: 455px;
+  height: 400px;
+  margin: 0 auto;
+}
+#calendar .sign_succ_calendar_title {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+#calendar .calendar_month_next {
+  float: right;
+  width: 65px;
+  cursor: pointer;
+}
+#calendar .calendar_month_prev {
+  float: left;
+  width: 65px;
+  cursor: pointer;
+}
+#calendar #sign_cal {
+  font-size: 16px;
+}
+#calendar #sign_cal td {
+  height: 40px;
+  line-height: 30px;
+  width: 65px;
+  text-align: center;
+}
+#calendar #sign_cal td span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+}
+#calendar .on span {
+  background: #1499f9;
+  color: #fff;
+  position: relative;
+}
+#calendar .on span:after {
+  background: #1499f9;
+  width: 6px;
+  height: 6px;
+  content: '';
+  display: inline-block;
+  border-radius: 6px;
+  position: absolute;
+  top: 0px;
+}
+#calendar .nowday span {
+  background-color: #ff8000;
+  color: #fff;
+}

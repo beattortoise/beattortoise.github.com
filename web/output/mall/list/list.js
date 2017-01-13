@@ -1,0 +1,1 @@
+$(function(){var a=$(".sift");a.on("click","a",function(){var a=$(this);a.hasClass("active")?a.removeClass("active"):a.addClass("active")})});
