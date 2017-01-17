@@ -186,6 +186,7 @@
 }
 .chart_box {
   margin-top: 30px;
+  text-align: center;
 }
 .chart_box .box_left {
   float: left;

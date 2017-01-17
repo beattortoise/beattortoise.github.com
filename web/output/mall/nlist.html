@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=1120">
+
+	<title>金融商城</title>
+
+
+		<!-- Bootstrap -->
+		<link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../../output/mall/global/global.css" rel="stylesheet">
+
+	<link href="../../output/mall/list/list.css" rel="stylesheet">
+	<style>
+		input::-webkit-input-placeholder{
+			color: #fff;
+		}
+	</style>
+
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		  <div class="container">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="index.html">logo</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+			  <ul class="nav navbar-nav">
+				<li class="active"><a href="index.html">首页</a></li>
+				<li><a href="list.html">档案室</a></li>
+				<li><a href="home.html">个人中心</a></li>
+				<li><a href="data.html">关于我们</a></li>
+				<li style="position: relative">
+				  <input type="" class="search_btn" />
+				  <span class="search_icon"></span>
+				</li>
+			  </ul>
+			</div>
+		  </div>
+		</nav>
+		<div class="content">
+
+	<div class="inner margin">
+		<a href="#" class="ad_img margin30">
+			<img src="images/ad.jpg" />
+		</a>
+		<div class="sort_one margin30">
+			<a href="?name=1&page=1">1</a>
+			<a href="?name=2&page=1">2</a>
+			<a href="?name=2&page=1">3</a>
+			<a href="?name=4&page=1">4</a>
+			<a href="?name=A&page=1">A</a>
+			<a href="?name=B&page=1">B</a>
+		</div>
+		<div class="margin30 result"> 我们为您找到 <span>4196</span> 个网贷平台</div>
+		<div class="margin30 r_list">
+			<div class="header_box clear">
+				<div class="header_left">
+					<a href="data.html"><img src="images/c_logo.jpg" /></a>
+					<a class="right_button" href="data.html">+ 关注</a>
+				</div>
+				<div class="header_right">
+					<a href="data.html" class="r_title">新信贷</a>
+					<p class="r_f">网友点评： 提现<span>3.2</span>  站岗<span>3.8</span>  服务<span>3.6</span>  体验<span>3.6</span></p>
+					<p>平均收益：9.29% <span></span>              投资期限：6-12月标(45.7%)、3月标(31.2%)</p>
+					<p>上线时间：2012-02-01  <span></span>     注册资本：5000万元   <span></span>      注册地：上海|虹口</p>
+				</div>
+			</div>
+		</div>
+		<div class="page_center">
+				<div class="list_page">
+				</div>
+		</div>
+	</div>
+
+		</div>
+		<footer>
+			Copyright @ 2011~2016 www.xxxxxx.com. All Rights Reserved.
+		</footer>
+		<script src="../../static/js/jquery.min.js"></script>
+		<script src="../../static/js/bootstrap.min.js"></script>
+		<script src="../../output/mall/global/global.js"></script>
+
+	<script src="../../output/mall/list/list.js"></script>
+	<script>
+		$(function() {
+			var name = F.parseURL().params.name;
+			var page = F.parseURL().params.page || 1;
+
+			//设置分页
+			var currentPage = page;
+
+			//首先获取总数
+			var url = 'http://m.boardwalk.cn/api/sk/GetCompanyPagingListByFirstLetter';
+
+			var data = {
+				firstLetter: name,
+				pageIndex: page,
+				pageSize: 20
+			}
+
+			$.ajax({
+				type: 'get',
+				url: url,
+				data: data,
+				success: function(data) {
+
+				}
+			})
+
+			var totalPage = Math.ceil(80/30);
+
+			var page = new PageHtml({
+				wrap: $('.list_page'),
+				next: true,
+				goHtml: true,
+				currentPage: currentPage,
+				totalPage: totalPage,
+				callback: function(html, isCache) {
+				}   
+			})  
+		})
+	</script>
+
+	</body>
+</html>

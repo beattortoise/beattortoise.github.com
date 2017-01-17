@@ -44,7 +44,8 @@
   font-size: 16px;
   padding-right: 20px;
 }
-.inner .sift .s_right a {
+.inner .sift .s_right a,
+.inner .sift .s_mid a {
   color: #abb0bc;
   border-radius: 4px;
   padding: 6px 10px;
@@ -52,7 +53,8 @@
   margin-right: 6px;
   margin-top: 6px;
 }
-.inner .sift .s_right a.active {
+.inner .sift .s_right a.active,
+.inner .sift .s_mid a.active {
   background: #1499f9;
   color: #fff;
 }

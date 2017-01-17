@@ -1,20 +1,24 @@
 var calUtil = {  
   //当前日历显示的年份  
-  showYear:2015,  
+  showYear: '',  
   //当前日历显示的月份  
-  showMonth:1,  
+  showMonth: '',  
   //当前日历显示的天数  
-  showDays:1,  
+  nowDays:1,  
   eventName:"load",  
+  data: '',
   //初始化日历  
-  init:function(signList){  
+  init:function(){  
+	var signList = this.data;
+	calUtil.showYear = this.showYear;
+	calUtil.showMonth = this.showMonth;
     calUtil.setMonthAndDay();  
     calUtil.draw(signList);  
     calUtil.bindEnvent();  
   },  
   draw:function(signList){  
     //绑定日历  
-    var str = calUtil.drawCal(calUtil.showYear,calUtil.showMonth,calUtil.showDays,signList);  
+    var str = calUtil.drawCal(calUtil.showYear,calUtil.showMonth,calUtil.nowDays,signList);  
     $("#calendar").html(str);  
     //绑定日历表头  
     var calendarName=calUtil.showYear+"年"+calUtil.showMonth+"月";  
@@ -25,17 +29,23 @@ var calUtil = {
     //绑定上个月事件  
     $(".calendar_month_prev").click(function(){  
       //ajax获取日历json数据  
-      var signList=[{"signDay":"10"},{"signDay":"11"},{"signDay":"12"},{"signDay":"13"}];  
       calUtil.eventName="prev";  
-      calUtil.init(signList);  
+      calUtil.init();  
     });  
     //绑定下个月事件  
     $(".calendar_month_next").click(function(){  
       //ajax获取日历json数据  
-      var signList=[{"signDay":"10"},{"signDay":"11"},{"signDay":"12"},{"signDay":"13"}];  
       calUtil.eventName="next";  
-      calUtil.init(signList);  
+      calUtil.init();  
     });  
+	//hover 显示回款信息 
+	$('.on').hover(function() {
+		$(this).find('p').show();
+		
+	},function() {
+		$(this).find('p').hide();
+
+	})
   },  
   //获取当前选择的年月  
   setMonthAndDay:function(){  
@@ -43,9 +53,9 @@ var calUtil = {
     {  
       case "load":  
         var current = new Date();  
-        calUtil.showYear=current.getFullYear();  
-        calUtil.showMonth=current.getMonth() + 1;  
-        calUtil.showDays=current.getDate(); 
+        calUtil.showYear = calUtil.showYear||current.getFullYear();  
+        calUtil.showMonth = calUtil.showMonth||current.getMonth() + 1;  
+        calUtil.nowDay = current.getDate(); 
         break;  
       case "prev":  
         var nowMonth=$(".calendar_month_span").html().split("年")[1].split("月")[0];  
@@ -107,14 +117,27 @@ var calUtil = {
    return aMonth;  
   },  
   ifHasSigned : function(signList,day){  
-   var signed = false;  
+   var signed = '';  
    $.each(signList,function(index,item){  
-	 // 扩展
-    if(item.signDay == day) {  
-     signed = true;  
-     return false;  
-    }  
+		 // 扩展
+		 var item_s = item.payday;
+		 var item_d = item_s.substr(8,2);
+		 var item_m = item_s.substr(5,2);
+
+		if(item_m.substr(0,1) == 0) {
+			item_m = item_m.substr(1,1);
+		}
+
+		if(item_d.substr(0,1) == 0) {
+			item_d = item_d.substr(1,1);
+		}
+		console.log(item_d);
+
+		if(item_s.substr(0,4) == calUtil.showYear && item_m == calUtil.showMonth && item_d == day) {  
+		 signed = item.plat+'-'+item.mark;  
+		}  
    });  
+
    return signed ;  
   },  
   drawCal : function(iYear, iMonth ,iDay,signList) {  
@@ -146,10 +169,9 @@ var calUtil = {
     htmls.push("<tr>");  
     for (d = 0; d < 7; d++) {  
      var ifHasSigned = calUtil.ifHasSigned(signList,myMonth[w][d]);  
-     console.log(ifHasSigned);  
-     console.log(iYear,iMonth,iDay);  
+
      if(ifHasSigned){  
-      htmls.push("<td class='on "+ (iYear == date.getFullYear() && iMonth == date.getMonth()+1 && date.getDate() == myMonth[w][d]? "nowday": "")+"'><span>" + (!isNaN(myMonth[w][d]) ? myMonth[w][d] : " ") + "</span></td>");  
+      htmls.push("<td class='on "+ (iYear == date.getFullYear() && iMonth == date.getMonth()+1 && date.getDate() == myMonth[w][d]? "nowday": "")+"'><span>" + (!isNaN(myMonth[w][d]) ? myMonth[w][d] : " ") + "</span><p>"+ifHasSigned+"</p></td>");  
      } else {  
       htmls.push("<td class='"+ (iYear == date.getFullYear() && iMonth == date.getMonth()+1 && date.getDate() == myMonth[w][d]? "nowday": "")+"'><span>" + (!isNaN(myMonth[w][d]) ? myMonth[w][d] : " ") + "</span></td>");  
      }  

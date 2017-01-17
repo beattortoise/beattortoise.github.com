@@ -35,7 +35,7 @@ body {
 }
 #calendar {
   width: 455px;
-  height: 400px;
+  height: 280px;
   margin: 0 auto;
 }
 #calendar .sign_succ_calendar_title {
@@ -68,22 +68,63 @@ body {
   height: 30px;
   border-radius: 30px;
 }
-#calendar .on span {
-  background: #1499f9;
-  color: #fff;
-  position: relative;
-}
-#calendar .on span:after {
-  background: #1499f9;
-  width: 6px;
-  height: 6px;
-  content: '';
-  display: inline-block;
-  border-radius: 6px;
-  position: absolute;
-  top: 0px;
-}
 #calendar .nowday span {
   background-color: #ff8000;
   color: #fff;
+}
+#calendar .nowday span:after {
+  content: '';
+  position: relative;
+  top: -11px;
+  left: 26px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #ff8000;
+}
+#calendar .on {
+  position: relative;
+  cursor: pointer;
+}
+#calendar .on span {
+  background: #1499f9;
+  color: #fff;
+}
+#calendar .on p {
+  background: rgba(0, 0, 0, 0.5);
+  min-width: 60px;
+  min-height: 40px;
+  color: #fff;
+  border-radius: 2px;
+  position: absolute;
+  top: 17px;
+  left: 47px;
+  z-index: 1;
+  font-size: 11px;
+  line-height: 15px;
+  padding: 4px;
+  display: none;
+}
+.calendar_intro {
+  margin-left: 286px;
+}
+.calendar_intro span {
+  cursor: pointer;
+  display: inline-block;
+}
+.calendar_intro span:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: #1499f9;
+  display: inline-block;
+}
+.calendar_intro .intro_now:after {
+  background: #ff8000;
+}
+.payCheck {
+  color: #1499f9;
+  font-style: normal;
+  cursor: pointer;
 }

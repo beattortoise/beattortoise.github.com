@@ -194,7 +194,9 @@
 		</div>
 		<div class="chart_box clear">
 			<div class="box_left">
-				<div id="profit" style="width: 594px;height:318px;"></div>
+				<div id="profit" style="width: 594px;height:318px;">
+					<img src="images/loading.gif" />
+				</div>
 			</div>
 			<div class="box_right">
 				<div id="platform" style="width: 594px;height:318px;"></div>
@@ -212,112 +214,6 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/3.3.2/echarts.min.js"></script>
 	<script src="../../output/mall/data/data.js"></script>
-
-	<script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-		var myChart = echarts.init(document.getElementById('profit'));
-		var date = ['2010/01/01','2011/01/02','2011/01/03','2011/01/04'];
-
-	    var data=[1,2.5,1.7,9];
-
-		option = {
-			backgroundColor: '#3babfd',
-			color: ['#fff'],
-			tooltip: {
-				trigger: 'axis',
-				position: function (pt) {
-					return [pt[0], '10%'];
-				}
-				
-			},
-			title: {
-				left: 'center',
-				top: '10',
-				text: '利率走势',
-				textStyle: {
-					color: '#fff'
-				}
-			},
-			toolbox : {
-				show : false
-			},
-			xAxis: {
-				axisLabel: {
-					textStyle: {
-						color: '#fff'
-					},
-				},
-				axisTick: {
-					"show": false
-				},
-				axisLine: {
-					lineStyle: {
-						color: '#fff'
-					}
-				},
-				type: 'category',
-				boundaryGap: false,
-				data: date
-
-			},
-			yAxis: {
-				type: 'value',
-				boundaryGap : [ 0.05, 0.05 ],
-				axisTick: {
-					"show": false
-				},
-				axisLine: {
-					lineStyle: {
-						color: '#fff'
-					}
-				},
-				axisLabel: {
-					formatter: '{value} %',
-					textStyle: {
-						color: '#fff'
-					},
-				}
-			},
-			dataZoom: [
-			{
-					"show": true,
-					"height": 15,
-					"xAxisIndex": [
-						0
-					],
-					bottom: 10,
-					handleIcon: 'path://M306.1,413c0,2.2-1.8,4-4,4h-59.8c-2.2,0-4-1.8-4-4V200.8c0-2.2,1.8-4,4-4h59.8c2.2,0,4,1.8,4,4V413z',
-					handleSize: '120%',
-					handleStyle:{
-						color:"#fff",
-						width: '20',
-					},
-				   textStyle:{
-				   color:"#fff"},
-				   borderColor:"#fff"
-					
-					
-				}, {
-					"type": "inside",
-					"show": true,
-					"height": 15,
-				}
-			],
-			series: [
-				{
-					name:'利率',
-					type:'line',
-					smooth: true,
-					data: data
-				}
-			]
-		};
-
-
-
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
-    </script>
 
 
 	</body>

@@ -116,3 +116,28 @@ footer {
   top: 18px;
   cursor: pointer;
 }
+/* 分页 */
+.global_page {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.global_page a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background-color: #fff;
+  color: #3c3f46;
+  line-height: 40px;
+  text-decoration: none;
+}
+.global_page .curr {
+  background-color: #1499f9;
+  color: #fff;
+}
+.global_page span {
+  display: inline-block;
+  width: 20px;
+  height: 40px;
+}
