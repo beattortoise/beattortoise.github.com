@@ -1,0 +1,83 @@
+<!-- @@master = layout.html-->
+<!-- @@block  =  title-->
+	<title>金融商城</title>
+<!-- @@close-->
+<!-- @@block  =  css-->
+	<link href="../../output/mall/index/index.css" rel="stylesheet">
+	<style>
+		input::-webkit-input-placeholder{
+			color: #fff;
+		}
+	</style>
+<!-- @@close-->
+
+<!-- @@block  =  content-->
+	<div class="bg"></div>
+	<div class="inner">
+		<div class="banner clear">
+			<div class="banner_left">
+				<a href="">
+					<img src="images/banner.png" />
+				</a>
+			</div>
+			<div class="banner_right">
+				<div class="login_box">
+					<p>登录能看到更多精彩内容</p>
+					<div>
+						<input type="text" placeholder="请输入手机号" />
+					</div>
+					<div>
+						<input type="password" placeholder="请输入密码" />
+					</div>
+					<div>
+						<input type="text" class="verify" placeholder="验证码" >
+					</div>
+					<div>
+						<button>登录</button>
+					</div>
+					<a class="regist" href="regist.html">没有账号，立即注册</a>
+				</div>
+			</div>
+		</div>
+		<a href="" class="opera">
+			<img src="images/opera.png" />
+		</a>
+		<div class="clear">
+			<div class="mod_box chartMod">
+				<div class="bd">
+					<div class="chartBox">
+						<ul class="tabUl">
+							<li class="on" id="chart_btn_0" onmouseover="changeDiv(0);"><span class="arrow"></span><a href="http://shuju.wdzj.com/industry-list.html" target="_blank">网贷指数</a></li><li id="chart_btn_57" onmouseover="changeDiv(57);"><span class="arrow"></span><a href="/dangan/rrd/" target="_blank">人人贷</a></li><li id="chart_btn_52" onmouseover="changeDiv(52);"><span class="arrow"></span><a href="/dangan/ppd/" target="_blank">拍拍贷</a></li><li id="chart_btn_60" onmouseover="changeDiv(60);"><span class="arrow"></span><a href="/dangan/hlct/" target="_blank">红岭创投</a></li><li id="chart_btn_59" onmouseover="changeDiv(59);"><span class="arrow"></span><a href="/dangan/ljs2/" target="_blank">陆金所</a></li><li id="chart_btn_85" onmouseover="changeDiv(85);"><span class="arrow"></span><a href="/dangan/yrd/" target="_blank">宜人贷</a></li><li id="chart_btn_116" onmouseover="changeDiv(116);"><span class="arrow"></span><a href="/dangan/kxd1/" target="_blank">开鑫贷</a></li><li id="chart_btn_689" onmouseover="changeDiv(689);"><span class="arrow"></span><a href="/dangan/aqj/" target="_blank">爱钱进</a></li><li id="chart_btn_38" onmouseover="changeDiv(38);"><span class="arrow"></span><a href="/dangan/wdw/" target="_blank">微贷网</a></li><li id="chart_btn_128" onmouseover="changeDiv(128);"><span class="arrow"></span><a href="/dangan/xrcf/" target="_blank">信融财富</a></li><li id="chart_btn_984" onmouseover="changeDiv(984);"><span class="arrow"></span><a href="/dangan/jbb/" target="_blank">金宝保</a></li><li id="chart_btn_942" onmouseover="changeDiv(942);"><span class="arrow"></span><a href="/dangan/ydw/" target="_blank">宜贷网</a></li><li id="chart_btn_129" onmouseover="changeDiv(129);"><span class="arrow"></span><a href="/dangan/drw/" target="_blank">点融网</a></li>
+						</ul>
+						<div class="bdBox">
+							<div class="tabBd" id="versionShow">
+								<p class="deal">成交：<span class="num" id="versionSuccess" >2790.78</span>利率：<span class="num" id="versionPromit" >12.78</span>人气：<span class="num" id="versionHot">2.78</span>
+								</p>
+								<div id="chartdiv0" style="width:750px;margin:0 auto;"></div>
+								<div class="com">网贷之家一周网贷指数：成交指数下滑，利率指数上涨<br/>本周（12月19日-12月25日）P2P网贷成交指数下滑5.16%，人气指数继续上涨1.50%，利率指数上涨3.40%，最高时（12.24）为10.76点。<br/></div>
+							</div>
+							<div id="chartdiv57" class="tabBd" style="display:none;width:750px;margin:0 auto"></div><div id="chartdiv52" class="tabBd" style="display:none;width:750px;margin:0 auto"></div><div id="chartdiv60" class="tabBd" style="display:none;width:750px;margin:0 auto"></div><div id="chartdiv59" class="tabBd" style="display:none;width:750px;margin:0 auto"></div><div id="chartdiv85" class="tabBd" style="display:none;width:750px;margin:0 auto"></div><div id="chartdiv116" class="tabBd" style="display:none;width:750px;margin:0 auto"></div><div id="chartdiv689" class="tabBd" style="display:none;width:750px;margin:0 auto"></div><div id="chartdiv38" class="tabBd" style="display:none;width:750px;margin:0 auto"></div><div id="chartdiv128" class="tabBd" style="display:none;width:750px;margin:0 auto"></div><div id="chartdiv984" class="tabBd" style="display:none;width:750px;margin:0 auto"></div><div id="chartdiv942" class="tabBd" style="display:none;width:750px;margin:0 auto"></div><div id="chartdiv129" class="tabBd" style="display:none;width:750px;margin:0 auto"></div>
+							</div>
+						</div>
+				</div>
+			</div>
+			<div class="bd_right">
+				<a href="">
+					<img src="images/video.jpg" />
+				</a>
+			</div>
+		</div>
+		<h2 class="title"> 热门推荐</h2>
+		<div class="clear">
+			<a class="recommand" href="#" style="margin-left: 0"></a>
+			<a class="recommand" href="#"></a>
+			<a class="recommand" href="#" style="margin-left: 0"></a>
+			<a class="recommand" href="#"></a>
+		</div>
+	</div>
+<!-- @@close-->
+
+<!-- @@block  =  js-->
+	<script src="http://cdn.hcharts.cn/highstock/highstock.js"></script>
+	<script src="../../output/mall/index/index.js"></script>
+<!-- @@close-->

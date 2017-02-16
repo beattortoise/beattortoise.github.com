@@ -1,0 +1,143 @@
+<!-- @@master = layout.html-->
+<!-- @@block  =  title-->
+	<title>金融商城</title>
+<!-- @@close-->
+<!-- @@block  =  css-->
+	<link href="../../static/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+	<link href="../../output/mall/home/home.css" rel="stylesheet">
+	<style>
+	#app {
+		border-radius: 2px;
+		margin-top: 40px;
+		background: #fff;
+		padding: 30px;
+	}
+	tr th {
+		text-align: center;
+	}
+	 tr input {
+		 border: 1px solid #ccc;
+		 width: 80px;
+		 height: 20px;
+		 display: none;
+	 }
+	 tr div {
+		 width: 80px;
+		 height: 20px;
+		 display: inline-block;
+	 }
+    #myTab {
+		width: 642px;
+	}
+    #myTabContent {
+		width: 650px;
+		height: 420px;
+	}
+	.nav-tabs>li>a {
+	   font-size: 18px;
+	   color: #abb0bc;
+	}
+	.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+	   color: #31343b;
+	}
+	</style>
+<!-- @@close-->
+
+<!-- @@block  =  content-->
+	<main class="inner">
+		<div class="box clear">
+			<div class="box_left">
+				<ul id="myTab" class="nav nav-tabs">
+					<li class="active">
+						<a href="#type_tab" data-toggle="tab">
+							 类型
+						</a>
+					</li>
+					<li><a href="#week_tab" data-toggle="tab">周期</a></li>
+					<li><a href="#year_tab" data-toggle="tab">收益率</a></li>
+					<li><a href="#mask_tab" data-toggle="tab">行业</a></li>
+					<li><a href="#risk_tab" data-toggle="tab">风险</a></li>
+				</ul>
+				<div id="myTabContent" class="tab-content">
+					<div class="tab-pane fade in active" id="type_tab">
+						<div id="type" style="width: 600px;height:350px;" class="circle"></div>
+					</div>
+					<div class="tab-pane fade in " id="week_tab">
+						<div id="week" style="width: 600px;height:350px;" class="circle"></div>
+					</div>
+					<div class="tab-pane fade in " id="year_tab">
+						<div id="year" style="width: 600px;height:350px;" class="circle"></div>
+					</div>
+					<div class="tab-pane fade in " id="mask_tab">
+						<div id="mask" style="width: 600px;height:350px;" class="circle"></div>
+					</div>
+					<div class="tab-pane fade in " id="risk_tab">
+						<div id="risk" style="width: 600px;height:350px;" class="circle"></div>
+					</div>
+				</div>
+			</div>
+			<div class="box_right">
+				<div class="calendar_title">回款日历</div>
+				<div id="calendar"></div>
+				<div class="calendar_intro">
+					<span>回款日期 </span> &nbsp;&nbsp;
+					<span class="intro_now">当前日期 </span>
+				</div>
+			</div>
+		</div>
+		<div id="app">
+			<table  class="table table-bordered">
+				<thead>
+					<tr>
+						<th width="100">台名称</th>
+						<th width="100">标</th>
+						<th width="100">金额</th>
+						<th>年化收益(%)</th>
+						<th>投资周期(周)</th>
+						<th>起息日期</th>
+						<th>预计收益</th>
+						<th>回收资金</th>
+						<th>回款日期</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="text-center" v-for="(item,index) in myData">
+						<td><div @click="doDiv(item,$event)">{{item.plat}}</div><input  v-model="item.plat" @blur="doInput(item,$event)" lazy /></td>
+						<td><div @click="doDiv(item,$event)">{{item.mark}}</div><input v-model="item.mark" @blur="doInput(item,$event)" lazy /></td>
+						<td><div @click="doDiv(item,$event)">{{item.money}}</div><input v-model="item.money" @blur="doInput(item,$event)" lazy /></td>
+						<td><div @click="doDiv(item,$event)">{{item.year}}</div><input v-model="item.year" @blur="doInput(item,$event)" lazy /></td>
+						<td><div @click="doDiv(item,$event)">{{item.week}}</div><input v-model="item.week" @blur="doInput(item,$event)" lazy /></td>
+						<td><div @click="doDiv(item,$event)">{{item.day}}</div><input  v-model="item.day" class="form_datetime" @blur="doInput(item,$event)" lazy /></td>
+						<td>{{item.cal}}</td>
+						<td>{{item.payment}}</td>
+						<td><span>{{item.payday}}</span> <em class="payCheck"> 查看</em></td>
+						<td><button class="btn btn-info btn-sm" @click="doDelete(index)"> 删除</button></td>
+					</tr>
+					<tr class="text-center normal">
+						<td><div @click="doDiv(normalData,$event)">{{normalData.plat}}</div><input  v-model="normalData.plat" @blur="doInput(normalData,$event,'add')" lazy placeholder="支付宝" /></td>
+						<td><div @click="doDiv(normalData,$event)">{{normalData.mark}}</div><input v-model="normalData.mark" @blur="doInput(normalData,$event,'add')" lazy placdholder="2" /></td>
+						<td><div @click="doDiv(normalData,$event)">{{normalData.money}}</div><input v-model="normalData.money" @blur="doInput(normalData,$event,'add')" lazy placdholder="2" /></td>
+						<td><div @click="doDiv(normalData,$event)">{{normalData.year}}</div><input v-model="normalData.year" @blur="doInput(normalData,$event,'add')" lazy placdholder="2" /></td>
+						<td><div @click="doDiv(normalData,$event)">{{normalData.week}}</div><input v-model="normalData.week" @blur="doInput(normalData,$event,'add')" lazy placdholder="2" /></td>
+						<td><div @click="doDiv(normalData,$event,'add')">{{normalData.day}}</div><input  v-model="normalData.day" class="form_datetime"  @blur="doInput(normalData,$event,'add')" /></td>
+						<td>{{normalData.cal}}</td>
+						<td>{{normalData.payment}}</td>
+						<td>{{normalData.payday}}</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</main>
+<!-- @@close-->
+
+<!-- @@block  =  js-->
+	<script src="../../static/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/3.3.2/echarts.min.js"></script>
+	<script src="../../output/mall/home/home.js"></script>
+	<script src="../../static/js/calendar.js"></script>
+<!-- @@close-->
+

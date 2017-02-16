@@ -1,0 +1,146 @@
+body {
+	background: #f7f7f7;
+}
+.inner {
+	position: relative;
+	top: 30px;
+	min-height: 780px;
+
+}
+.box {
+	.box_left {
+		border-radius: 2px;
+		padding: 20px;
+		height: 420px;
+		width: 680px;
+		float: left;
+		margin-right: 30px;
+		background: #fff;
+	}
+	.box_right {
+		border-radius: 2px;
+		padding: 20px;
+		height: 420px;
+		width: 510px;
+		float: left;
+		background: #fff;
+	}
+	.calendar_title {
+		background: #1499f9;
+		line-height: 40px;
+		border-radius: 4px;
+		color: #fff;
+		font-size: 20px;
+		width: 110px;
+		margin: 10px auto 20px;
+		text-align: center;
+	}
+}
+
+#calendar {
+	width: 455px;
+	height: 280px;
+	margin: 0 auto;
+	.sign_succ_calendar_title {
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+	}
+	.calendar_month_next {
+		float: right;
+		width: 65px;
+		cursor: pointer;
+	}
+	.calendar_month_prev {
+		float: left;
+		width: 65px;
+		cursor: pointer;
+	}
+	.calendar_month_span {
+
+	}
+    #sign_cal {
+		font-size: 16px;
+		td {
+			height: 40px;
+			line-height: 30px;
+			width: 65px;
+			text-align: center;
+			span {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				border-radius: 30px;
+			}
+
+		}
+
+	}
+	.nowday {
+		span {
+			background-color: #ff8000;
+			color: #fff;
+			&:after {
+				content: '';
+				position: relative;
+				top: -11px;
+				left: 26px;
+				display: block;
+				width: 10px;
+				height: 10px;
+				border-radius: 10px;
+				background: #ff8000;
+
+			}
+		}
+	}
+	.on {
+		position: relative;
+		cursor: pointer;
+		span {
+			background: #1499f9;
+			color: #fff;
+		}
+		p {
+			background: rgba(0,0,0,0.5);
+			min-width: 60px;
+			min-height: 40px;
+			color: #fff;
+			border-radius: 2px;
+			position: absolute;
+			top: 17px;
+			left: 47px;
+			z-index: 1;
+			font-size: 11px;
+			line-height: 15px;
+			padding: 4px;
+			display: none;
+		}
+	}
+
+}
+.calendar_intro {
+	margin-left: 286px;
+	span {
+		cursor: pointer;
+		display: inline-block;
+		&:after {
+			content: '';
+			width: 10px;
+			height: 10px;
+			background: #1499f9;
+			display: inline-block;
+		}
+	}
+	.intro_now {
+		&:after {
+			background: #ff8000;
+		}
+	}
+
+}
+.payCheck {
+	color: #1499f9;
+	font-style: normal;
+	cursor: pointer;
+}
