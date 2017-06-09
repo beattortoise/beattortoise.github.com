@@ -76,7 +76,7 @@ canvas();
 			//  加载图片 
 			var picGetPromise = new Promise(function(resolve) {
 				var pic = new Image();
-				pic.src = 'http://img0.zealer.com/28/f3/6d/e3cccc9ac525d042e3d1cb50d0.jpg';
+				pic.src = 'bike.jpg';
 				pic.onload = function() {
 					resolve(pic);
 				}
@@ -387,7 +387,7 @@ canvas();
 			var context = canvas.getContext('2d');
 
 			  picImg = new Image();
-			  picImg.src = 'http://img0.zealer.com/28/f3/6d/e3cccc9ac525d042e3d1cb50d0.jpg';
+			  picImg.src = 'bike.jpg';
 			  picImg.onload = function() {
 				context.drawImage(picImg, 0, 0, 450, 450)
 
