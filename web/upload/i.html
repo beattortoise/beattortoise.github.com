@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0">
+		<meta content="telephone=no" name="format-detection">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="cleartype" content="on">
+	</head>
+	<body>
+         <div class="form-upload">
+           *请上传您的工牌正反面两张照片（要清晰可见）
+           <div class="img-list">
+				<img  width="100" src="" />
+			</div>
+         </div>
+        <input type="file" id="input1" name="" value="">
+		<script src="zepto.js"></script>
+		<script src="lrz.js"></script>
+		<script>
+			$('#input1').on('change', function (ev) {
+						if(this.value != '') {
+						  lrz(ev.target.files[0])
+						 .then(function (rst) {
+						   // 处理成功会执行
+						   console.log(rst)
+							$('img').attr('src', rst.base64);
+
+
+						 })
+						 .catch(function (err) {
+						   // 处理失败会执行
+						 })
+						 .always(function () {
+						   // 不管是成功失败，都会执行
+						 })
+
+						 }
+
+					})
+
+
+
+		</script>
+
+	</body>
+</html>
